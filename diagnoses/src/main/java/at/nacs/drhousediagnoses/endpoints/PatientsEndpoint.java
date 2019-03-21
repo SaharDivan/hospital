@@ -2,7 +2,6 @@ package at.nacs.drhousediagnoses.endpoints;
 
 import at.nacs.drhousediagnoses.domain.Patient;
 import at.nacs.drhousediagnoses.logic.DrHouse;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +19,6 @@ public class PatientsEndpoint {
 
     private final DrHouse drHouse;
     private final RestTemplate restTemplate;
-
-    @Value("${severcases}")
-    @Getter
     private final List<String> severcases;
 
     @Value("${pharmacy.server.url}")

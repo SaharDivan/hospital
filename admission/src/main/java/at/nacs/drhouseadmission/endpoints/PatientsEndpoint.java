@@ -16,9 +16,9 @@ import org.springframework.web.client.RestTemplate;
 public class PatientsEndpoint {
 
     private final Admission admission;
-
     private final RestTemplate restTemplate;
-    @Value("${diagnoses.server.url}")
+
+    @Value("${diagnosesBook.server.url}")
     private String url;
 
     @PostMapping

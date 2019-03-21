@@ -2,22 +2,16 @@ package at.nacs.drhousediagnoses.logic;
 
 
 import at.nacs.drhousediagnoses.domain.Patient;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-@ConfigurationProperties("endpoints.illnesses")
-@Log
 public class DrHouse {
 
-    @Getter
-    private final Map<String, String> diagnoses;
+    private final Map<String, String> diagnosesBook;
 
     public Patient diagnose(Patient patient) {
         if (isDrRecognizeTheIllness(patient)) {
@@ -31,11 +25,11 @@ public class DrHouse {
 
     private Boolean isDrRecognizeTheIllness(Patient patient) {
         String symptoms = patient.getSymptoms();
-        return diagnoses.containsKey(symptoms);
+        return diagnosesBook.containsKey(symptoms);
     }
 
     private String assignDiagnose(Patient patient) {
         String symptoms = patient.getSymptoms();
-        return diagnoses.get(symptoms);
+        return diagnosesBook.get(symptoms);
     }
 }
