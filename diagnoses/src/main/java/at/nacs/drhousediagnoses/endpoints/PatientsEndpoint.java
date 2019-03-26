@@ -21,21 +21,21 @@ public class PatientsEndpoint {
     private final RestTemplate restTemplate;
     private final List<String> severcases;
 
-    @Value("${pharmacy.server.url}")
-    private String pharmacyUrl;
-
     @Value("${bed.server.url}")
     private String bedUrl;
+
+    @Value("${pharmacy.server.url}")
+    private String pharmacyUrl;
 
     @PostMapping
     Patient post(@RequestBody Patient patient) {
         Patient diagnosedPatient = drHouse.diagnose(patient);
-        sendToRelevantDepartment(diagnosedPatient);
+        forwardToRelevantDepartment(diagnosedPatient);
         return diagnosedPatient;
     }
 
 
-    public String sendToRelevantDepartment(Patient patient) {
+    public String forwardToRelevantDepartment(Patient patient) {
         if (severcases.contains(patient.getDiagnoses())) {
             restTemplate.postForObject(bedUrl, patient, Patient.class);
             return "Beds";

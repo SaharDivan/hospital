@@ -3,10 +3,10 @@ server:
 
 bed:
  server:
-  url: 9004
+  url: http://localhost:9003
 pharmacy:
  server:
-  url: 9003
+  url: http://localhost:9004
 
 endpoints:
  illnesses:

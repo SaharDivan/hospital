@@ -1,7 +1,12 @@
 server:
   port: 9002
 
-
+bed:
+  server:
+    url: http://localhost:9003
+pharmacy:
+  server:
+    url: http://localhost:9004
 
 
 

@@ -1,0 +1,7 @@
+nurse:
+  book:
+    asthma: oxigon
+    heartattack : emergency
+accountancy:
+  server:
+    url: 9005

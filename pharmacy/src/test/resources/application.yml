@@ -1,0 +1,7 @@
+apothecary:
+  prescription:
+    coughing: foster
+accountancy:
+  server:
+    url: 9005
+

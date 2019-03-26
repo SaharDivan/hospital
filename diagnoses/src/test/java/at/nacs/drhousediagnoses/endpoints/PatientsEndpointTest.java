@@ -10,8 +10,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.UUID;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
@@ -50,7 +48,7 @@ class PatientsEndpointTest {
                 .diagnoses(diagnosis)
                 .build();
 
-        String actual = patientsEndpoint.sendToRelevantDepartment(patient);
+        String actual = patientsEndpoint.forwardToRelevantDepartment(patient);
 
         assertThat(actual).isEqualTo(department);
     }
