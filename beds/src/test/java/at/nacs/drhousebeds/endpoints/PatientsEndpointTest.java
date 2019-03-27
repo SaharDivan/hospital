@@ -3,7 +3,6 @@ package at.nacs.drhousebeds.endpoints;
 
 import at.nacs.drhousebeds.domain.Patient;
 import at.nacs.drhousebeds.logics.Nurse;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,9 +11,7 @@ import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.UUID;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
@@ -39,7 +36,6 @@ class PatientsEndpointTest {
 
     private Patient patient = Patient.builder()
             .name("David")
-            .id(UUID.randomUUID().toString())
             .diagnosis("headache")
             .build();
 
