@@ -1,4 +1,4 @@
-package at.nacs.drhousediagnoses.Configuration;
+package at.nacs.drhousediagnoses.configuration;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 @Configuration
-@ConfigurationProperties("endpoints.illnesses")
+@ConfigurationProperties("communication.illnesses")
 public class DrHouseConfiguration {
 
     @Getter

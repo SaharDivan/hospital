@@ -1,6 +1,6 @@
-package at.nacs.drhousebeds.logics;
+package at.nacs.drhousebeds.logic;
 
-import at.nacs.drhousebeds.domain.Patient;
+import at.nacs.drhousebeds.persistance.domain.Patient;
 import at.nacs.drhousebeds.persistance.PatientRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,7 +46,6 @@ class NurseTest {
         assertThat(handledPatient).isNotNull();
         assertThat(handledPatient.getTreatment()).isEqualTo("oxigon");
     }
-
 
     @Test
     void checkRepository() {

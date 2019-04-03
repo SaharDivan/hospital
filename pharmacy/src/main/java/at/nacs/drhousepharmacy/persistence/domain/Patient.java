@@ -1,4 +1,4 @@
-package at.nacs.drhousepharmacy.domain;
+package at.nacs.drhousepharmacy.persistence.domain;
 
 
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package at.nacs.drhousepharmacy.logic;
 
 
-import at.nacs.drhousepharmacy.domain.Patient;
+import at.nacs.drhousepharmacy.persistence.domain.Patient;
 import at.nacs.drhousepharmacy.persistence.PatientRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

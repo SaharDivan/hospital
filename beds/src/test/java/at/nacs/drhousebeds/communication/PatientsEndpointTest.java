@@ -1,8 +1,7 @@
-package at.nacs.drhousebeds.endpoints;
+package at.nacs.drhousebeds.communication;
 
-
-import at.nacs.drhousebeds.domain.Patient;
-import at.nacs.drhousebeds.logics.Nurse;
+import at.nacs.drhousebeds.persistance.domain.Patient;
+import at.nacs.drhousebeds.logic.Nurse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,7 +31,7 @@ class PatientsEndpointTest {
     Nurse nurse;
 
     @SpyBean
-    ForwardClass forwardClass;
+    AccountancyClient accountancyClient;
 
     private Patient patient = Patient.builder()
             .name("David")
@@ -53,8 +52,8 @@ class PatientsEndpointTest {
 
     @Test
     void testForwardToAccountancy() {
-        forwardClass.forwardToAccountancy(patient);
+        accountancyClient.forwardToAccountancy(patient);
 
-        verify(forwardClass).forwardToAccountancy(patient);
+        verify(accountancyClient).forwardToAccountancy(patient);
     }
 }

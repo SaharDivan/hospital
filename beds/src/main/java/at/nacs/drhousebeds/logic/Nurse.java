@@ -1,6 +1,6 @@
-package at.nacs.drhousebeds.logics;
+package at.nacs.drhousebeds.logic;
 
-import at.nacs.drhousebeds.domain.Patient;
+import at.nacs.drhousebeds.persistance.domain.Patient;
 import at.nacs.drhousebeds.persistance.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

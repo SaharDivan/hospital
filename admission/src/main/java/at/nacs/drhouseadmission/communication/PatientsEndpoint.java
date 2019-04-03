@@ -1,4 +1,4 @@
-package at.nacs.drhouseadmission.endpoints;
+package at.nacs.drhouseadmission.communication;
 
 import at.nacs.drhouseadmission.domain.Patient;
 import at.nacs.drhouseadmission.logic.Admission;

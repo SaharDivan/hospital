@@ -36,7 +36,6 @@ class DrHouseTest {
         Patient patient = Patient.builder()
                 .name("David")
                 .symptoms(symptoms)
-                .id(UUID.randomUUID().toString())
                 .build();
         Patient diagnosed = drHouse.diagnose(patient);
 

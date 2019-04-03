@@ -1,6 +1,6 @@
-package at.nacs.drhousepharmacy.endpoints;
+package at.nacs.drhousepharmacy.communication;
 
-import at.nacs.drhousepharmacy.domain.Patient;
+import at.nacs.drhousepharmacy.persistence.domain.Patient;
 import at.nacs.drhousepharmacy.logic.Apothecary;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

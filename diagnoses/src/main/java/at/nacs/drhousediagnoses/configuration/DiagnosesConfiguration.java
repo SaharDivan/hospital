@@ -1,4 +1,4 @@
-package at.nacs.drhousediagnoses.Configuration;
+package at.nacs.drhousediagnoses.configuration;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Configuration
-public class EndpointsConfiguration {
+public class DiagnosesConfiguration {
 
 
     @Value("${severcases}")

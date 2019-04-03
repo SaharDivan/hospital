@@ -1,6 +1,6 @@
 package at.nacs.drhousepharmacy.logic;
 
-import at.nacs.drhousepharmacy.domain.Patient;
+import at.nacs.drhousepharmacy.persistence.domain.Patient;
 import at.nacs.drhousepharmacy.persistence.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

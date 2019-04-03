@@ -1,7 +1,7 @@
-package at.nacs.drhousepharmacy.endpoints;
+package at.nacs.drhouseadmission.communication;
 
+import at.nacs.drhouseadmission.domain.Patient;
 import org.junit.jupiter.api.Test;
-import at.nacs.drhousepharmacy.domain.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -17,32 +17,22 @@ class PatientsEndpointTest {
     @Autowired
     TestRestTemplate testRestTemplate;
 
-    @Autowired
-    PatientsEndpoint patientsEndpoint;
-
     @MockBean
     RestTemplate restTemplate;
 
-    private Patient patient = Patient.builder()
-            .name("David")
-            .diagnosis("coughing")
-            .build();
+    String url = "/patients";
 
     @Test
-    void pharmacyRegistry() {
-        String url = "/patients";
+    public void post() {
+        Patient patient = Patient.builder()
+                .name("Mina")
+                .symptoms("coughing")
+                .build();
 
         Patient actual = testRestTemplate.postForObject(url, patient, Patient.class);
 
-        assertThat(actual).isNotNull();
-        assertThat(actual.getMedicine()).isEqualTo("foster");
-
-    }
-
-    @Test
-    void forwardToAccountancy() {
-        String sentMessage = patientsEndpoint.forwardToAccountancy(patient);
-
-        assertThat(sentMessage).isNotEmpty();
+        assertThat(actual.getName()).isEqualTo("Mina");
+        assertThat(actual.getSymptoms()).isEqualTo("coughing");
+        assertThat(actual.getId()).isNotEmpty();
     }
 }
