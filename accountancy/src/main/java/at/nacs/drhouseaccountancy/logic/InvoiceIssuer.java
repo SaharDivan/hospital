@@ -5,7 +5,9 @@ import at.nacs.drhouseaccountancy.persistance.domian.Kind;
 import at.nacs.drhouseaccountancy.persistance.domian.Patient;
 import at.nacs.drhouseaccountancy.persistance.dto.PatientDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class InvoiceIssuer {
 

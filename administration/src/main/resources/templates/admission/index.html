@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -13,11 +12,16 @@
 <h3>Admission Form</h3>
 <h3>Please fill in your information</h3>
 
+<div th:text="${patient.name}">Your registered name</div>
+<div th:text="${patient.symptoms}">Your symptoms</div>
+
 <form method="post" th:action="@{/}" th:object="${patient}">
     <label>Name</label>
     <input th:field="*{name}" type="text"/>
+    <p th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Please enter valid name</p>
     <label>Symptoms</label>
     <input th:field="*{symptoms}" type="text"/>
+    <p th:errors="*{symptoms}" th:if="${#fields.hasErrors('symptoms')}">Please enter valid symptom</p>
     <button type="submit">Submit</button>
 </form>
 

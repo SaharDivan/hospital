@@ -12,8 +12,8 @@ import java.util.Map;
 @Service
 public class AccountancyCalculator {
 
-    private Map<String, Double> treatment;
-    private Map<String, Double> medicine;
+    private final Map<String, Double> treatment;
+    private final Map<String, Double> medicine;
 
     public Double calculateCostForPatient(PatientDTO dto) {
         String serviceByHospital = dto.getTreatment();

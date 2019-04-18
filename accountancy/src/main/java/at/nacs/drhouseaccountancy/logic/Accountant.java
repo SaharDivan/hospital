@@ -13,7 +13,6 @@ public class Accountant {
     private final InvoiceManager invoiceManager;
     private final PatientManager patientManager;
 
-
     public void administerTheAccount(PatientDTO dto) {
         patientManager.saveOrUpdatePatient(dto);
         Invoice invoice = invoiceIssuer.issueInvoice(dto);

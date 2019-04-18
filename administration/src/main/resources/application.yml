@@ -2,7 +2,7 @@ server:
   port: 9000
 admission:
   address:
-    url: http://localhost:9000/patients
+    url: http://localhost:9001/patients
 accountancy:
   address:
     url: http://localhost:9005/invoices

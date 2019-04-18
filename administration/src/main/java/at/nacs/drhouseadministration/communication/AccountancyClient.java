@@ -22,7 +22,7 @@ public class AccountancyClient {
     }
 
     public void markAsPaid(Long id){
-        String accountancyUrl = url + "/accountancy/"+id+"/paid";
+        String accountancyUrl = url+id+"/paid";
         restTemplate.put(accountancyUrl,id);
     }
 }

@@ -30,8 +30,8 @@ public class HomePageController {
     }
 
     @PostMapping
-    String send(@Valid Patient patient, BindingResult result) {
-        if (result.hasFieldErrors()) {
+    String sendToAdmission(@Valid Patient patient, BindingResult result) {
+        if (result.hasErrors()) {
             return page();
         }
         client.send(patient);
