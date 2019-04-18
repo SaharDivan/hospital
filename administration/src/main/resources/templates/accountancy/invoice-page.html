@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+</head>
+<body>
+
+<h2>Dr House Hospital</h2>
+<h3>Invoice Page</h3>
+<table>
+    <tr>
+        <th>Invoice</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="invoice : ${invoices}">
+
+        <td th:text="${invoice.patient.name}">Name</td>
+        <td th:text="${invoice.id}">ID</td>
+        <td th:text="${invoice.symptoms}">Symptoms</td>
+        <td th:text="${invoice.diagnosis}">Diagnosis</td>
+        <td th:text="${invoice.provided}">Provided Service</td>
+        <td th:text="${invoice.cost}">Cost in £</td>
+        <td th:text="${invoice.paid}">Payment Status</td>
+        <td th:text="${invoice.timestamp}">Time</td>
+
+        <td>
+            <form method="post" th:action="@{/invoices}">
+                <input name="id" th:value="${invoice.id}" type="hidden"/>
+                <button>Mark As Paid</button>
+            </form>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

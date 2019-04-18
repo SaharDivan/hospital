@@ -15,7 +15,6 @@ public class Nurse {
     private final Map<String, String> book;
     private final PatientRepository repository;
 
-
     public Patient provideTreatments(Patient patient) {
         Stream.of(patient)
                 .map(Patient::getDiagnosis)

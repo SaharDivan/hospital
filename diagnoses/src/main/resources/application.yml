@@ -1,12 +1,21 @@
 server:
   port: 9002
-
 bed:
   server:
-    url: http://localhost:9003
+    url: http://localhost:9003/patients
 pharmacy:
   server:
-    url: http://localhost:9004
+    url: http://localhost:9004/patients
 
 
 
+endpoints:
+  illnesses:
+    diagnosesBook:
+      headache: migren
+      stomackache: food poisoning
+      coughing: asthma
+      accident: brucken leg
+      chestpain: heart attack
+
+severcases: food poisoning, brucken leg, heart attack

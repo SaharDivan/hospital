@@ -1,0 +1,17 @@
+server:
+  port: 9005
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/dr_house_accountancy?useSSL=false
+    username: admin
+    password: nacs
+  jpa:
+    hibernate:
+      ddl-auto: update
+hospital:
+  pricelist:
+    treatment:
+      asthma : injection
+    medicine :
+      headacke: painkiller

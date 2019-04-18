@@ -18,7 +18,7 @@ public class PatientsEndpoint {
     private final Admission admission;
     private final RestTemplate restTemplate;
 
-    @Value("${diagnosesBook.server.url}")
+    @Value("${diagnoses.server.url}")
     private String url;
 
     @PostMapping

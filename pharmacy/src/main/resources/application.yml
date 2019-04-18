@@ -4,3 +4,9 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/hospital
+apothecary:
+  prescription:
+    coughing: foster
+accountancy:
+  server:
+    url: 9005

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+</head>
+<body>
+
+<h2>Dr House Hospital</h2>
+<h3>Admission Form</h3>
+<h3>Please fill in your information</h3>
+
+<form method="post" th:action="@{/}" th:object="${patient}">
+    <label>Name</label>
+    <input th:field="*{name}" type="text"/>
+    <label>Symptoms</label>
+    <input th:field="*{symptoms}" type="text"/>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

@@ -4,3 +4,10 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/hospital
+nurse:
+  book:
+    asthma: oxigon
+    heartattack : emergency
+accountancy:
+  server:
+    url: 9005
