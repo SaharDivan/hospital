@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<
+<h2>Dr House Hospital</h2>
+<h3>Admission Form</h3>
+<h3>Please fill in your information</h3>
 
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
 </head>
-<body>
-
-<h2>Dr House Hospital</h2>
-<h3>Admission Form</h3>
-<h3>Please fill in your information</h3>
-
-<div th:text="${patient.name}">Your registered name</div>
-<div th:text="${patient.symptoms}">Your symptoms</div>
 
 <form method="post" th:action="@{/}" th:object="${patient}">
     <label>Name</label>
@@ -24,6 +20,17 @@
     <p th:errors="*{symptoms}" th:if="${#fields.hasErrors('symptoms')}">Please enter valid symptom</p>
     <button type="submit">Submit</button>
 </form>
+
+<table>
+    <tr>
+        <th>Your Name:</th>
+        <th>Your Symptoms:</th>
+    </tr>
+    <tr>
+        <td th:text="${patient.symptoms}">Your symptoms</td>
+        <td th:text="${patient.name}">Your registered name</td>
+    </tr>
+</table>
 
 </body>
 </html>

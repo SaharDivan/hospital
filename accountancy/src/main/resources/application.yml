@@ -12,6 +12,6 @@ spring:
 hospital:
   pricelist:
     treatment:
-      asthma : injection
+      injection : 10.0
     medicine :
-      headacke: painkiller
+      antibiotic: 11.0

@@ -15,7 +15,7 @@ endpoints:
       headache: migren
       stomackache: food poisoning
       coughing: asthma
-      accident: brucken leg
+      accident: brocken leg
       chestpain: heart attack
 
-severcases: food poisoning, brucken leg, heart attack
+severcases: food poisoning, brocken leg, heart attack

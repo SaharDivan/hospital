@@ -1,4 +1,4 @@
-package at.nacs.drhouseaccountancy.persistance;
+package at.nacs.drhouseaccountancy.persistance.repository;
 
 import at.nacs.drhouseaccountancy.persistance.domian.Invoice;
 import org.springframework.data.jpa.repository.JpaRepository;

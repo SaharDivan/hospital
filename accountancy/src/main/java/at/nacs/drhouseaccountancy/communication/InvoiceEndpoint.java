@@ -1,6 +1,7 @@
 package at.nacs.drhouseaccountancy.communication;
 
-import at.nacs.drhouseaccountancy.persistance.InvoiceRepository;
+import at.nacs.drhouseaccountancy.logic.InvoiceManager;
+import at.nacs.drhouseaccountancy.persistance.repository.InvoiceRepository;
 import at.nacs.drhouseaccountancy.persistance.domian.Invoice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,18 +13,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InvoiceEndpoint {
 
-    private final InvoiceRepository invoiceRepository;
+    private final InvoiceManager invoiceManager;
+
 
     @GetMapping
     List<Invoice> findAllInvoices() {
-        return invoiceRepository.findAll();
+        return invoiceManager.find();
     }
 
     @PutMapping("/{id}/paid")
-    void setTheInvoiceAsPaid(@PathVariable Long id) {
-        Invoice invoice = invoiceRepository.findById(id).get();
-        invoice.setPaid(true);
-        invoiceRepository.save(invoice);
+    void sendToMarkAsPaid(@PathVariable Long id) {
+        invoiceManager.setTheInvoiceAsPaid(id);
     }
 
 

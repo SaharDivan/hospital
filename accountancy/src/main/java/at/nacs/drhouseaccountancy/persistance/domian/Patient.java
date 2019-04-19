@@ -14,8 +14,8 @@ import javax.persistence.Id;
 @Entity
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Patient {
 
     @Id
