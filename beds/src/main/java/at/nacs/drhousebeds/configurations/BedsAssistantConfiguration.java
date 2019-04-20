@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Configuration
 @ConfigurationProperties("nurse")
-public class NurseConfiguration {
+public class BedsAssistantConfiguration {
 
     @Setter
      private Map<String,String> book;

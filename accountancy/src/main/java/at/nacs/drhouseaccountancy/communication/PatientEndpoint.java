@@ -15,7 +15,8 @@ public class PatientEndpoint {
     private final Accountant accountant;
 
     @PostMapping
-    void passDTOToAccountancyDepartments(@RequestBody PatientDTO dto) {
+    String passDTOToAccountancyDepartments(@RequestBody PatientDTO dto) {
         accountant.administerTheAccount(dto);
+        return "data arrived!";
     }
 }

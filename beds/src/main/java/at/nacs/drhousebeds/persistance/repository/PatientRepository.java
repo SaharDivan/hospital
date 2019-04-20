@@ -1,4 +1,4 @@
-package at.nacs.drhousebeds.persistance;
+package at.nacs.drhousebeds.persistance.repository;
 
 import at.nacs.drhousebeds.persistance.domain.Patient;
 import org.springframework.data.mongodb.repository.MongoRepository;

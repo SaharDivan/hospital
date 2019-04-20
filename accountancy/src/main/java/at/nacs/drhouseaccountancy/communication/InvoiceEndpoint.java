@@ -1,7 +1,6 @@
 package at.nacs.drhouseaccountancy.communication;
 
 import at.nacs.drhouseaccountancy.logic.InvoiceManager;
-import at.nacs.drhouseaccountancy.persistance.repository.InvoiceRepository;
 import at.nacs.drhouseaccountancy.persistance.domian.Invoice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

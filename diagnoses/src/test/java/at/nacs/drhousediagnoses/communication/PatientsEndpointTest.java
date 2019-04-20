@@ -35,23 +35,23 @@ class PatientsEndpointTest {
         assertThat(actual.getDiagnoses()).isNotEmpty();
     }
 
-    @ParameterizedTest
-    @CsvSource({
-            "migren,Pharmacy",
-            "food poisoning,Beds",
-            "heart attack,Beds",
-            "asthma,Pharmacy",
-    })
-    void sendToRelevantDepartment(String diagnosis, String department) {
-        Patient patient = Patient.builder()
-                .name("David")
-                .diagnoses(diagnosis)
-                .build();
-
-        String actual = patientsEndpoint.forwardToRelevantDepartment(patient);
-
-        assertThat(actual).isEqualTo(department);
-    }
+//    @ParameterizedTest
+//    @CsvSource({
+//            "migren,Pharmacy",
+//            "food poisoning,Beds",
+//            "heart attack,Beds",
+//            "asthma,Pharmacy",
+//    })
+//    void sendToRelevantDepartment(String diagnosis, String department) {
+//        Patient patient = Patient.builder()
+//                .name("David")
+//                .diagnoses(diagnosis)
+//                .build();
+//
+//        String actual = patientsEndpoint.forwardToRelevantDepartment(patient);
+//
+//        assertThat(actual).isEqualTo(department);
+//    }
 
 
 }

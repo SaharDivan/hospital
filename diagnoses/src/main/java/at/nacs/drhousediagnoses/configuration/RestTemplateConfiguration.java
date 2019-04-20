@@ -10,18 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Configuration
-public class DiagnosesConfiguration {
-
-
-    @Value("${severcases}")
-    @Getter
-    @Setter
-    private List<String> severcases;
-
-    @Bean
-    List<String> makeSevercases() {
-        return severcases;
-    }
+public class RestTemplateConfiguration {
 
     @Bean
     RestTemplate restTemplate() {

@@ -1,7 +1,7 @@
 package at.nacs.drhousebeds.communication;
 
 import at.nacs.drhousebeds.persistance.domain.Patient;
-import at.nacs.drhousebeds.logic.Nurse;
+import at.nacs.drhousebeds.logic.BedsAssistance;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +28,7 @@ class PatientsEndpointTest {
     RestTemplate restTemplate;
 
     @MockBean
-    Nurse nurse;
+    BedsAssistance bedsAssistance;
 
     @SpyBean
     AccountancyClient accountancyClient;
@@ -42,7 +42,7 @@ class PatientsEndpointTest {
     void bedsRegistry() {
         String url = "/patients";
 
-        when(nurse.provideTreatments(patient))
+        when(bedsAssistance.provideTreatments(patient))
                 .thenReturn(patient);
 
         Patient actual = testRestTemplate.postForObject(url, patient, Patient.class);

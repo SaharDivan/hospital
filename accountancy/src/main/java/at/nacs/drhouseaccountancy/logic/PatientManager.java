@@ -15,18 +15,20 @@ public class PatientManager {
     private final PatientRepository patientRepository;
 
 
-    public void saveOrUpdatePatient(PatientDTO dto) {
+    public Patient saveOrUpdatePatient(PatientDTO dto) {
+        Patient patient;
         Optional<Patient> optionalPatient =
                 patientRepository.findByUuid(dto.getId());
         if (optionalPatient.isEmpty()) {
-            patientRepository.save(Patient.builder()
-                    .uuid(dto.getId())
+            patient = patientRepository.save(Patient.builder()
                     .name(dto.getName())
                     .build());
+
         } else {
-            Patient patient = optionalPatient.get();
+            patient = optionalPatient.get();
             patient.setName(dto.getName());
             patientRepository.save(patient);
         }
+        return patient;
     }
 }

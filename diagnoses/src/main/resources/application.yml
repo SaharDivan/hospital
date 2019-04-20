@@ -8,7 +8,6 @@ pharmacy:
     url: http://localhost:9004/patients
 
 
-
 endpoints:
   illnesses:
     diagnosesBook:

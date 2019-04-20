@@ -12,10 +12,10 @@ import org.springframework.web.client.RestTemplate;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.NONE;
 
 @SpringBootTest(webEnvironment = NONE)
-class AdmissionTest {
+class AdminAssistanceTest {
 
     @Autowired
-    Admission admission;
+    AdminAssistance adminAssistance;
 
     @MockBean
     RestTemplate restTemplate;
@@ -30,7 +30,7 @@ class AdmissionTest {
                 .name(name)
                 .symptoms(symptoms)
                 .build();
-        admission.admit(patient);
+        adminAssistance.register(patient);
 
         Assertions.assertThat(patient.getId()).isNotNull();
 

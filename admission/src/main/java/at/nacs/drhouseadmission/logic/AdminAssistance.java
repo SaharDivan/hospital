@@ -9,10 +9,10 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class Admission {
+public class AdminAssistance {
     private final DiagnosesClient client;
 
-    public void admit(Patient patient) {
+    public void register(Patient patient) {
         patient.setId(UUID.randomUUID().toString());
         client.forwardToDiagnoseRoom(patient);
     }

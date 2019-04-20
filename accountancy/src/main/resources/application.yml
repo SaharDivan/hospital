@@ -1,6 +1,5 @@
 server:
   port: 9005
-
 spring:
   datasource:
     url: jdbc:mysql://localhost/dr_house_accountancy?useSSL=false

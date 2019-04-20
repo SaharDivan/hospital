@@ -39,10 +39,10 @@ class PatientsEndpointTest {
 
     }
 
-    @Test
-    void forwardToAccountancy() {
-        String sentMessage = patientsEndpoint.forwardToAccountancy(patient);
-
-        assertThat(sentMessage).isNotEmpty();
-    }
+//    @Test
+//    void forwardToAccountancy() {
+//        String sentMessage = patientsEndpoint.forwardToAccountancy(patient);
+//
+//        assertThat(sentMessage).isNotEmpty();
+//    }
 }

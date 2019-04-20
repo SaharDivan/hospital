@@ -12,6 +12,7 @@ import java.util.Map;
 public class DrHouse {
 
     private final Map<String, String> diagnosesBook;
+    private final DrHouseAssistant assistant;
 
     public Patient diagnose(Patient patient) {
         if (isDrRecognizeTheIllness(patient)) {
@@ -19,6 +20,7 @@ public class DrHouse {
             return patient;
         }
         patient.setDiagnoses("lupus");
+        assistant.forwardToRelevantDepartment(patient);
         return patient;
     }
 
@@ -32,4 +34,6 @@ public class DrHouse {
         String symptoms = patient.getSymptoms();
         return diagnosesBook.get(symptoms);
     }
+
+
 }

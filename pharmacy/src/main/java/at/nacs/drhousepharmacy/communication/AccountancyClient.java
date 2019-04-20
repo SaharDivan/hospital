@@ -1,6 +1,7 @@
-package at.nacs.drhousebeds.communication;
+package at.nacs.drhousepharmacy.communication;
 
-import at.nacs.drhousebeds.persistance.domain.Patient;
+import at.nacs.drhousepharmacy.persistence.domain.Patient;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,12 +14,15 @@ public class AccountancyClient {
 
     private final RestTemplate restTemplate;
 
-    @Value("${accountancy.server.url}")
     @Setter
+    @Getter
+    @Value("${accountancy.server.url}")
     private String url;
 
-    public Patient forwardToAccountancy(Patient patient) {
-       return restTemplate.postForObject(url, patient, Patient.class);
+    public String forwardToAccountancy(Patient patient){
+        restTemplate.postForObject(url,patient,Patient.class);
+        return "Patient is sent to accountancy.";
     }
-
 }
+
+

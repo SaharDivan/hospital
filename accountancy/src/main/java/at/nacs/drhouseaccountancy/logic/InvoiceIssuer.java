@@ -7,11 +7,15 @@ import at.nacs.drhouseaccountancy.persistance.dto.PatientDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class InvoiceIssuer {
 
     private final AccountancyCalculator calculator;
+    private final PatientManager patientManager;
+
 
     public Invoice issueInvoice(PatientDTO dto) {
         return Invoice.builder()
@@ -19,8 +23,7 @@ public class InvoiceIssuer {
                 .diagnosis(dto.getDiagnosis())
                 .provided(dto.getTreatment())
                 .symptoms(dto.getSymptoms())
-                .kind(assignTheKind(dto))
-                .symptoms(dto.getSymptoms())
+                //.kind(assignTheKind(dto))
                 .cost(calculator.calculateCostForPatient(dto))
                 .build();
     }
@@ -33,9 +36,6 @@ public class InvoiceIssuer {
     }
 
     private Patient setPatient(PatientDTO dto) {
-        Patient patient = new Patient();
-        patient.setName(dto.getName());
-        patient.setUuid(dto.getId());
-        return patient;
+       return patientManager.saveOrUpdatePatient(dto);
     }
 }

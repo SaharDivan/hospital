@@ -20,6 +20,11 @@ public class AccountancyCalculator {
         if (treatment.containsKey(serviceByHospital)) {
             return treatment.get(serviceByHospital);
         }
-        return medicine.get(serviceByHospital);
+
+        if(medicine.containsKey(dto.getMedicine())){
+        return medicine.get(dto.getMedicine());
+        }
+
+        return 0.0;
     }
 }

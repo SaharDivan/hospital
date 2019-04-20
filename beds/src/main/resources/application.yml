@@ -10,4 +10,5 @@ nurse:
     heartattack : emergency
 accountancy:
   server:
-    url: 9005
+    url: http://localhost:9005/patients
+
