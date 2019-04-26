@@ -6,17 +6,17 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-@Configuration
-@ConfigurationProperties
-public class PatientEndpointTestConfiguration {
-
-    @Getter
-    @Setter
-   private PatientDTO dto;
-
-    @Bean
-    PatientDTO dto(){
-        return dto();
-    }
-}
+//
+//@Configuration
+//@ConfigurationProperties("test")
+//public class PatientEndpointTestConfiguration {
+//
+//    @Getter
+//    @Setter
+//   private PatientDTO dto;
+//
+//    @Bean
+//    PatientDTO dto(){
+//        return dto();
+//    }
+//}

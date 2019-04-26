@@ -1,1 +1,4 @@
-
+test:
+  dto:
+    name: Nima
+    id: 45

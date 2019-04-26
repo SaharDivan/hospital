@@ -24,7 +24,6 @@ public class ApothecaryAssistant {
                 .map(prescription::get)
                 .peek(e -> patient.setMedicine(e))
                 .forEach(e -> repository.save(patient));
-        client.forwardToAccountancy(patient);
-        return patient;
+        return client.forwardToAccountancy(patient);
     }
 }

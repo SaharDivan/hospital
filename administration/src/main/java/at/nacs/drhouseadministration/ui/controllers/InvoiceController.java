@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -20,17 +22,23 @@ public class InvoiceController {
         return client.getAll();
     }
 
+    @ModelAttribute("principal")
+    Principal principal(Principal principal) {
+        return principal;
+    }
+
+
     @GetMapping
     String page() {
         return "accountancy/invoice-page";
     }
 
+    @RolesAllowed("ACCOUNTANT")
     @PostMapping()
     String post(Long id) {
 
         client.markAsPaid(id);
-        return "redirect:/";
+        return "redirect:/invoices";
     }
-
 
 }

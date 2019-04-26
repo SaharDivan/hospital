@@ -16,8 +16,8 @@ import java.util.List;
 public class AccountancyClient {
     private final RestTemplate restTemplate;
 
+    @Getter
     @Value("${accountancy.address.url}")
-    @Setter
     private String url;
 
     public List<Invoice> getAll() {

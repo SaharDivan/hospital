@@ -14,21 +14,25 @@ public class PatientManager {
 
     private final PatientRepository patientRepository;
 
-
     public Patient saveOrUpdatePatient(PatientDTO dto) {
-        Patient patient;
-        Optional<Patient> optionalPatient =
-                patientRepository.findByUuid(dto.getId());
-        if (optionalPatient.isEmpty()) {
-            patient = patientRepository.save(Patient.builder()
-                    .name(dto.getName())
-                    .build());
+//        Optional<Patient> optionalPatientByUuid =
+//                patientRepository.findByUuid(dto.getId());
+        Optional<Patient> optionalPatientByName =
+                patientRepository.findByName(dto.getName());
 
-        } else {
-            patient = optionalPatient.get();
-            patient.setName(dto.getName());
-            patientRepository.save(patient);
+        if (!patientRepository.existsByName(dto.getName())){
+            return patientRepository.save(
+                    Patient.builder()
+                            .name(dto.getName())
+                            .uuid(dto.getId())
+                            .build()
+            );
         }
-        return patient;
+        else {
+
+            Patient patient = optionalPatientByName.get();
+            patient.setUuid(dto.getId());
+            return patientRepository.save(patient);
+        }
     }
 }

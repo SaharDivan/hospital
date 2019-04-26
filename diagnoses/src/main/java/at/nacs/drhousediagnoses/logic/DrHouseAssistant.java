@@ -13,10 +13,10 @@ public class DrHouseAssistant {
     private final List<String> severcases;
     private final PatientTransferClient client;
 
-    public void forwardToRelevantDepartment(Patient patient) {
+    public Patient forwardToRelevantDepartment(Patient patient) {
         if (severcases.contains(patient.getDiagnoses())) {
-            client.sendToBeds(patient);
+           return client.sendToBeds(patient);
         }
-        client.sendToPharmacy(patient);
+      return   client.sendToPharmacy(patient);
     }
 }

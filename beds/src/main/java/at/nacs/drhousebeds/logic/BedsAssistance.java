@@ -17,7 +17,6 @@ public class BedsAssistance {
     private final PatientRepository repository;
     private final AccountancyClient accountancyClient;
 
-
     public Patient provideTreatments(Patient patient) {
         Stream.of(patient)
                 .map(Patient::getDiagnosis)

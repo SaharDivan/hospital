@@ -17,7 +17,6 @@ public class PatientsEndpoint {
 
     @PostMapping
     public Patient post(@RequestBody Patient patient) {
-        adminAssistance.register(patient);
-        return patient;
+      return adminAssistance.register(patient);
     }
 }

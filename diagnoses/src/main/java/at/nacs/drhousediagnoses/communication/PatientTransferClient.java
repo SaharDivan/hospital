@@ -1,6 +1,7 @@
 package at.nacs.drhousediagnoses.communication;
 
 import at.nacs.drhousediagnoses.domain.Patient;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,11 +18,12 @@ public class PatientTransferClient {
     private String bedUrl;
 
     @Value("${pharmacy.server.url}")
-    @Setter
+    @Getter
     private String pharmacyUrl;
 
     public Patient sendToBeds(Patient patient) {
-       return restTemplate.postForObject(bedUrl, patient, Patient.class);
+
+        return restTemplate.postForObject(bedUrl, patient, Patient.class);
     }
 
     public Patient sendToPharmacy(Patient patient) {

@@ -1,6 +1,7 @@
 package at.nacs.drhouseadministration.communication;
 
 import at.nacs.drhouseadministration.ui.model.Patient;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,10 +15,10 @@ public class AdmissionClient {
     private final RestTemplate restTemplate;
 
     @Value("${admission.address.url}")
-    @Setter
+    @Getter
     private String url;
 
     public Patient send(Patient patient) {
-       return restTemplate.postForObject(url,patient,Patient.class);
+        return restTemplate.postForObject(url, patient, Patient.class);
     }
 }

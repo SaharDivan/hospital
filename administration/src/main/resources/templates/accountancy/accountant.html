@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Accountant</title>
+</head>
+<body>
+<h2>Accountant Page</h2>
+<h2>Welcome, <u><span th:text="${principal.name}">Username</span></u></h2>
+<p>This is the accountant page</p>
+<form method="post" th:action="@{/login}">
+    <button>Sign In</button>
+</form>
+<form method="post" th:action="@{/logout}">
+    <button>Sign Out</button>
+</form>
+<table>
+    <tr>
+        <th>Patient Name:</th>
+        <th>Id:</th>
+        <th>Symptoms:</th>
+    </tr>
+
+    <tr th:each="invoice : ${invoices}">
+
+        <td th:text="${invoice.patient.name}">Name</td>
+        <td th:text="${invoice.id}">ID</td>
+        <td th:text="${invoice.symptoms}">Symptoms</td>
+        <td th:text="${invoice.diagnosis}">Diagnosis</td>
+        <td th:text="${invoice.provided}">Provided Service</td>
+        <td th:text="${invoice.cost}">Cost in £</td>
+        <td th:text="${invoice.paid}">Payment Status</td>
+        <td th:text="${invoice.timestamp}">Time</td>
+
+        <td>
+            <form method="post" th:action="@{/invoices}">
+                <input name="id" th:value="${invoice.id}" type="text"/>
+                <button>Mark As Paid</button>
+            </form>
+            <br/>
+        </td>
+    </tr>
+</table>
+
+
+<br/>
+<br/>
+<h3 th:href="@{/invoices}">Go to home page</h3>
+<h3 th:if="${param.logout}">You have been logged out</h3>
+<h3 th:if="${param.error}">There was an error, please try again</h3>
+<h3>Login with the ACCOUNTANT Username and Password</h3>
+<form method="post" th:action="@{/login}">
+    <fieldset>
+        <input autofocus="autofocus" name="username" placeholder="Username" type="text" value=""/>
+        <input name="password" placeholder="Password" type="password"/>
+    </fieldset>
+    <button>Login</button>
+</form>
+<br/>
+<form method="post" th:action="@{/logout}">
+    <button>Sign Out</button>
+</form>
+</body>
+</html>

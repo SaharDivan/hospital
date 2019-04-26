@@ -14,7 +14,6 @@ public class InvoiceEndpoint {
 
     private final InvoiceManager invoiceManager;
 
-
     @GetMapping
     List<Invoice> findAllInvoices() {
         return invoiceManager.find();
@@ -24,6 +23,4 @@ public class InvoiceEndpoint {
     void sendToMarkAsPaid(@PathVariable Long id) {
         invoiceManager.setTheInvoiceAsPaid(id);
     }
-
-
 }

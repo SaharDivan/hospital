@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
+<header>
     <meta charset="UTF-8">
     <title>Title</title>
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
-</head>
+</header>
 <body>
 
 <h2>Dr House Hospital</h2>
 <h3>Invoice Page</h3>
 <table>
     <tr>
-        <th>Invoice</th>
-        <th>Action</th>
+        <th>Patient Name:</th>
+        <th>Id:</th>
+        <th>Symptoms:</th>
     </tr>
 
     <tr th:each="invoice : ${invoices}">
-
         <td th:text="${invoice.patient.name}">Name</td>
         <td th:text="${invoice.id}">ID</td>
         <td th:text="${invoice.symptoms}">Symptoms</td>
@@ -26,15 +26,10 @@
         <td th:text="${invoice.cost}">Cost in £</td>
         <td th:text="${invoice.paid}">Payment Status</td>
         <td th:text="${invoice.timestamp}">Time</td>
-
-        <td>
-            <form method="post" th:action="@{/invoices}">
-                <input name="id" th:value="${invoice.id}" type="hidden"/>
-                <button>Mark As Paid</button>
-            </form>
-        </td>
     </tr>
-
 </table>
+<a th:href="@{/login}">Go to the accountant page</a>
+<br/>
+<a th:href="@{/}">Go to the homepage</a>
 </body>
 </html>

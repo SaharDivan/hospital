@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dr House Hospital</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+</head>
+
+<body>
 <h2>Dr House Hospital</h2>
 <h3>Admission Form</h3>
 <h3>Please fill in your information</h3>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
-</head>
-
 <form method="post" th:action="@{/}" th:object="${patient}">
     <label>Name</label>
-    <input th:field="*{name}" type="text"/>
+    <input class="input" th:field="*{name}" type="text"/>
     <p th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Please enter valid name</p>
     <label>Symptoms</label>
-    <input th:field="*{symptoms}" type="text"/>
+    <input class="input" th:field="*{symptoms}" type="text"/>
     <p th:errors="*{symptoms}" th:if="${#fields.hasErrors('symptoms')}">Please enter valid symptom</p>
     <button type="submit">Submit</button>
 </form>
-
-<table>
-    <tr>
-        <th>Your Name:</th>
-        <th>Your Symptoms:</th>
-    </tr>
-    <tr>
-        <td th:text="${patient.symptoms}">Your symptoms</td>
-        <td th:text="${patient.name}">Your registered name</td>
-    </tr>
-</table>
-
+<div class="container1">
+    THis IS the Container
+</div>
+<div class="container">
+    <table>
+        <tr>
+            <td class="under">You'r registered in our system as: <span th:text="${patient.name}"></span></td>
+            <td class="under">Your symptoms are: <span th:text="${patient.symptoms}"></span></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

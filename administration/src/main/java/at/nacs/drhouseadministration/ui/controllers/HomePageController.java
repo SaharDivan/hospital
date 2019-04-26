@@ -18,10 +18,11 @@ import javax.validation.Valid;
 public class HomePageController {
 
     private final AdmissionClient client;
+    private Patient patient = new Patient();
 
     @ModelAttribute("patient")
     Patient patient() {
-        return new Patient();
+        return patient;
     }
 
     @GetMapping
@@ -34,8 +35,9 @@ public class HomePageController {
         if (result.hasErrors()) {
             return page();
         }
-        client.send(patient);
+        this.patient = client.send(patient);
         return "redirect:/";
     }
+
 
 }

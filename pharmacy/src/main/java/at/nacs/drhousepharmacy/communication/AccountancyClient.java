@@ -14,14 +14,12 @@ public class AccountancyClient {
 
     private final RestTemplate restTemplate;
 
-    @Setter
     @Getter
     @Value("${accountancy.server.url}")
     private String url;
 
-    public String forwardToAccountancy(Patient patient){
-        restTemplate.postForObject(url,patient,Patient.class);
-        return "Patient is sent to accountancy.";
+    public Patient forwardToAccountancy(Patient patient){
+      return restTemplate.postForObject(url,patient,Patient.class);
     }
 }
 

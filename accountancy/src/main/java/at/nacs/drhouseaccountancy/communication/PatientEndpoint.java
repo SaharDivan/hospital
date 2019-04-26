@@ -1,6 +1,7 @@
 package at.nacs.drhouseaccountancy.communication;
 
 import at.nacs.drhouseaccountancy.logic.Accountant;
+import at.nacs.drhouseaccountancy.persistance.domian.Patient;
 import at.nacs.drhouseaccountancy.persistance.dto.PatientDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,13 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/patients")
+
 @RequiredArgsConstructor
 public class PatientEndpoint {
     private final Accountant accountant;
 
     @PostMapping
-    String passDTOToAccountancyDepartments(@RequestBody PatientDTO dto) {
-        accountant.administerTheAccount(dto);
-        return "data arrived!";
+    public Patient passDTOToAccountancyDepartments(@RequestBody PatientDTO dto) {
+      // return new Patient((long)34567,"123","Tuma");
+      return accountant.administerTheAccount(dto);
     }
 }

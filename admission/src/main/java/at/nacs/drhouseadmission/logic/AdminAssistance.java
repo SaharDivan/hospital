@@ -12,8 +12,8 @@ import java.util.UUID;
 public class AdminAssistance {
     private final DiagnosesClient client;
 
-    public void register(Patient patient) {
+    public Patient register(Patient patient) {
         patient.setId(UUID.randomUUID().toString());
-        client.forwardToDiagnoseRoom(patient);
+     return  client.forwardToDiagnoseRoom(patient);
     }
 }
