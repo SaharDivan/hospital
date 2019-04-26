@@ -25,7 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/accountant").hasRole("ACCOUNTANT")
                 .anyRequest().hasRole("ACCOUNTANT")
                 .and()
-                .formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
+                .formLogin().loginPage("/login").failureUrl("/login?error")
                 .and()
                 .logout().permitAll()
                 .and()

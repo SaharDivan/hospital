@@ -22,11 +22,6 @@ public class InvoiceController {
         return client.getAll();
     }
 
-    @ModelAttribute("principal")
-    Principal principal(Principal principal) {
-        return principal;
-    }
-
 
     @GetMapping
     String page() {
